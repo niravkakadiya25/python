@@ -6,7 +6,7 @@ import numpy as np
 import matplotlib.pyplot as plt
 import requests
 from PIL import Image
-from fastapi import FastAPI
+
 import uvicorn
 
 

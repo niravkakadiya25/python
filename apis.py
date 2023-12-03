@@ -1,13 +1,19 @@
-import cartoon
+#!/usr/bin/env python3
 from flask import Flask, jsonify, request
+import cartoon
 import cv2
 import numpy as np
 import matplotlib.pyplot as plt
 import requests
 from PIL import Image
+from fastapi import FastAPI
+import uvicorn
 
 
 app = Flask(__name__)
+
+# app = FastAPI()
+
 def car():
         url ='https://miro.medium.com/v2/resize:fit:720/format:webp/1*WXUB76OzBkZglTV-_h7jfg.jpeg'
         data = requests.get(url).content 
@@ -84,12 +90,17 @@ def car():
         cv2.imwrite('carton/CartoonImage.png', cartoon_Bilateral)
         cartoon.uploadIMage()
 
-
 @app.route('/getCartoonImage', methods=['POST'])
 def getCartoonImages():
         car()
         return jsonify({'sdf': 'wfwef'})
 
+# if __name__ == "__main__":
+        # app.run(app, host="217.21.94.64", port=65002)
 
-if __name__ == "__main__":
-   app.run()
+def main():
+    app.run(host='0.0.0.0', port=8080)
+
+
+if __name__ == '__main__':
+    main()

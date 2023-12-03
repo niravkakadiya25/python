@@ -6,6 +6,7 @@ import numpy as np
 import matplotlib.pyplot as plt
 import requests
 from PIL import Image
+from gevent.pywsgi import WSGIServer
 
 
 
@@ -98,7 +99,8 @@ def getCartoonImages():
         # app.run(app, host="217.21.94.64", port=65002)
 
 def main():
-    app.run(host='0.0.0.0', port=8080)
+    http_server = WSGIServer(('', 5000), app)
+    http_server.serve_forever()
 
 
 if __name__ == '__main__':

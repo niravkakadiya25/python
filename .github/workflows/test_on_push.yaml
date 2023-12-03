@@ -28,6 +28,7 @@ jobs:
           pip install -r requirements.txt
           pip install opencv-python
           pip install matplotlib
+          pip install gevent
 
       - name: echo workspace
         run: echo $GITHUB_WORKSPACE

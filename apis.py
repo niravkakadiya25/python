@@ -7,7 +7,6 @@ import matplotlib.pyplot as plt
 import requests
 from PIL import Image
 
-import uvicorn
 
 
 app = Flask(__name__)
